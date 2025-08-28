@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0c0c0c;
+    color: #f5f5f5;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #0c0c0c;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-icon {
+    background: linear-gradient(to right, #ff6a00, #ff2a6d);
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #f26a3d;
+}
+
+.hero p {
+    color: #aaa;
+    margin-top: 10px;
+    font-size: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* Search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Search bar */
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #1c1c1c;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+/* Filter buttons */
+.filter-btn {
+  background: #1c1c1c;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin-right: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background: #333;
+}
+
+.filter-btn.active {
+  background: #e66a4e; /* orange highlight */
+  color: white;
+}
+
+
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px 40px;
+}
+
+/* Event Card */
+.event-card {
+    background: #141414;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.category {
+    background-color: #f26a3d;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fav-btn {
+    background: #2c2c2c;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+/* Image Placeholder */
+.image-placeholder {
+    background: #eaeaea;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card Body */
+.card-body {
+    padding: 12px;
+}
+
+.card-body h3 {
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+.club {
+    color: #f26a3d;
+    font-size: 14px;
+}
+
+.desc {
+    color: #aaa;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+/* Footer */
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Floating Chat Button */
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f26a3d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Remove underline and default link colors */
+.event-card {
+    display: block;
+    background: #141414;
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none; /* Removes underline */
+    overflow: hidden;
+    padding-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Make sure text inside doesn't get underlined */
+.event-card h3,
+.event-card p,
+.event-card span {
+    color: inherit;
+    text-decoration: none; /* ensures no underline */
+}

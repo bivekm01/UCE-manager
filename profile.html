@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #0c0c0c;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-icon {
+    background: linear-gradient(to right, #ff6a00, #ff2a6d);
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+        .content-container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .auth-container, .profile-card {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2a2a2a;
+            animation: fadeIn 1s ease-in-out;
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-card { max-width: 700px; }
+        .auth-container h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff4d7e;
+        }
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .auth-form input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            color: white;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .auth-form input:focus {
+            border-color: #ff4d7e;
+            box-shadow: 0 0 0 2px rgba(255, 77, 126, 0.5);
+        }
+        .auth-btn {
+            width: 100%;
+            background-color: #ff4d7e;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .auth-btn:hover {
+            background-color: #e3436d;
+            transform: scale(1.02);
+        }
+        .toggle-link {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #b0b0b0;
+        }
+        .toggle-link button {
+            color: #ff4d7e;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            text-decoration: underline;
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ff4d7e;
+            object-fit: cover;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 126, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(255, 77, 126, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 126, 0.7); }
+        }
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .profile-email, .profile-phone {
+            font-size: 1rem;
+            color: #888;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff4d7e;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #2a2a2a;
+            padding-bottom: 0.5rem;
+        }
+        .profile-body-sections p {
+            color: #b0b0b0;
+        }
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .interest-tag {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .interest-tag:hover {
+            background-color: #ff4d7e;
+            transform: scale(1.1);
+        }
+        .edit-btn, .save-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s;
+        }
+        .edit-btn { background-color: #ff4d7e; color: white; }
+        .edit-btn:hover { background-color: #e3436d; transform: scale(1.05); }
+        .save-btn { background-color: #10b981; color: white; }
+        .save-btn:hover { background-color: #059669; transform: scale(1.05); }
+        .hidden { display: none; }
+        .message-box {
+            position: fixed; top: 1rem; left: 50%; transform: translateX(-50%);
+            background-color: #333; color: white; padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; z-index: 1000;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 640px) {
+            .profile-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">AI</div>
+            <span>AI Copilot</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="clubs.html">👥 Clubs</a></li>
+            <li><a href="events.html">📅 Events</a></li>
+            <li><a href="announce.html">📢 Announcements</a></li>
+            <li><a href="notifications.html">🔔 Notifications</a></li>
+            <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+    
+    </nav>
+    <div id="content-container" class="content-container"></div>
+    <div id="message-box" class="message-box hidden"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('content-container');
+            let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+
+            const showMessage = (msg) => {
+                const messageBox = document.getElementById('message-box');
+                messageBox.textContent = msg;
+                messageBox.classList.remove('hidden');
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 3000);
+            };
+
+            const renderProfilePage = () => {
+                const fullName = `${currentUser.firstName} ${currentUser.lastName}`;
+                const profilePic = currentUser.profilePicUrl || `https://placehold.co/150x150/ff4d7e/fff?text=${currentUser.firstName.charAt(0)}`;
+                const interestsList = currentUser.interests.map(tag => `<span class="interest-tag">${tag}</span>`).join('');
+                
+                contentContainer.innerHTML = `
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="${profilePic}" alt="Profile" class="profile-picture">
+                            <h1 class="profile-name">${fullName}</h1>
+                            <p class="profile-email">${currentUser.email}</p>
+                            <p class="profile-phone">${currentUser.phoneNumber}</p>
+                        </div>
+                        <div class="profile-body-sections">
+                            <section>
+                                <h2 class="section-title">About Me</h2>
+                                <p id="about-me-text">${currentUser.aboutMe}</p>
+                                <textarea id="about-me-edit" class="hidden">${currentUser.aboutMe}</textarea>
+                            </section>
+                            <section>
+                                <h2 class="section-title">My Interests</h2>
+                                <div id="interests-list">${interestsList}</div>
+                                <input type="text" id="interests-edit" class="hidden" value="${currentUser.interests.join(', ')}" />
+                            </section>
+                            <section id="pic-url-section" class="hidden">
+                                <h2 class="section-title">Profile Picture URL</h2>
+                                <input type="text" id="pic-url-edit" value="${currentUser.profilePicUrl || ''}" />
+                            </section>
+                        </div>
+                        <div class="edit-buttons">
+                            <button id="edit-btn" class="edit-btn">Edit Profile</button>
+                            <button id="save-btn" class="save-btn hidden">Save Changes</button>
+                            <button id="sign-out-btn" class="save-btn" style="background-color: #dc2626;">Sign Out</button>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('edit-btn').addEventListener('click', toggleEditMode);
+                document.getElementById('save-btn').addEventListener('click', saveProfile);
+                document.getElementById('sign-out-btn').addEventListener('click', handleSignOut);
+            };
+
+            const renderAuthPage = (isRegistering) => {
+                contentContainer.innerHTML = `
+                    <div class="auth-container">
+                        <h2>${isRegistering ? 'Create Account' : 'Log In'}</h2>
+                        <form id="auth-form" class="auth-form">
+                            ${isRegistering ? `
+                                <input type="text" id="firstName" placeholder="First Name" required />
+                                <input type="text" id="lastName" placeholder="Last Name" required />
+                                <input type="email" id="email" placeholder="Email Address" required />
+                            ` : ''}
+                            <input type="tel" id="phoneNumber" placeholder="Phone Number" required />
+                            <input type="password" id="password" placeholder="Password" required />
+                            <button type="submit" class="auth-btn">${isRegistering ? 'Register' : 'Log In'}</button>
+                        </form>
+                        <p class="toggle-link">
+                            ${isRegistering ? 'Already have an account?' : "Don't have an account?"}
+                            <button id="toggle-auth">${isRegistering ? 'Log In' : 'Register now'}</button>
+                        </p>
+                    </div>
+                `;
+                
+                document.getElementById('auth-form').addEventListener('submit', isRegistering ? handleRegister : handleLogin);
+                document.getElementById('toggle-auth').addEventListener('click', () => renderAuthPage(!isRegistering));
+            };
+
+            const toggleEditMode = () => {
+                document.getElementById('about-me-text').classList.toggle('hidden');
+                document.getElementById('about-me-edit').classList.toggle('hidden');
+                document.getElementById('interests-list').classList.toggle('hidden');
+                document.getElementById('interests-edit').classList.toggle('hidden');
+                document.getElementById('pic-url-section').classList.toggle('hidden');
+                document.getElementById('edit-btn').classList.toggle('hidden');
+                document.getElementById('save-btn').classList.toggle('hidden');
+            };
+
+            const saveProfile = () => {
+                currentUser.aboutMe = document.getElementById('about-me-edit').value;
+                currentUser.interests = document.getElementById('interests-edit').value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+                currentUser.profilePicUrl = document.getElementById('pic-url-edit').value;
+                
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                users[currentUser.phoneNumber] = currentUser;
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                showMessage('Profile updated successfully!');
+                renderProfilePage(); 
+            };
+
+            const handleRegister = (e) => {
+                e.preventDefault();
+                const newUserData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phoneNumber: document.getElementById('phoneNumber').value,
+                    password: document.getElementById('password').value,
+                    aboutMe: "Tell us a bit about yourself!",
+                    interests: ["AI", "CommunityBuilding"],
+                    profilePicUrl: `https://placehold.co/150x150/ff4d7e/fff?text=${document.getElementById('firstName').value.charAt(0)}`
+                };
+                
+                if (users[newUserData.phoneNumber]) {
+                    showMessage('Error: Phone number already registered.');
+                    return;
+                }
+                
+                users[newUserData.phoneNumber] = newUserData;
+                localStorage.setItem('users', JSON.stringify(users));
+                showMessage('Registration successful! Please log in.');
+                renderAuthPage(false);
+            };
+
+            const handleLogin = (e) => {
+                e.preventDefault();
+                const phoneNumber = document.getElementById('phoneNumber').value;
+                const password = document.getElementById('password').value;
+                
+                if (users[phoneNumber] && users[phoneNumber].password === password) {
+                    currentUser = users[phoneNumber];
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    showMessage('Login successful!');
+                    renderProfilePage();
+                } else {
+                    showMessage('Login failed: Invalid phone number or password.');
+                }
+            };
+            
+            const handleSignOut = () => {
+                currentUser = null;
+                localStorage.removeItem('currentUser');
+                showMessage('Signed out successfully.');
+                renderAuthPage(false);
+            };
+
+            // Initial check to decide which page to render
+            if (currentUser) {
+                renderProfilePage();
+            } else {
+                renderAuthPage(false);
+            }
+        });
+    </script>
+</body>
+</html>
