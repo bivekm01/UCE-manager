@@ -197,6 +197,7 @@ body {
 /* Image Placeholder */
 .image-placeholder {
     background: #eaeaea;
+    background-image: url('1.png'); /* Try ./ explicitly */
     height: 150px;
     display: flex;
     align-items: center;

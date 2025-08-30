@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="stylesev.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">AI</div>
+            <span>AI Copilot</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="clubs.html">👥 Clubs</a></li>
+            <li><a href="events.html">📅 Events</a></li>
+            <li><a href="announce.html">📢 Announcements</a></li>
+            <li><a href="notifications.html">🔔 Notifications</a></li>
+            <li><a href="profile.html">👤 Profile</a></li>
+        </ul>
+    
+    </nav>
+
+        <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch" />
+            <label for="theme-switch"></label>
+        </div>
+    </header>
+
+    <main class="event-details-page">
+        <a href="index.html" class="back-link">&larr; Back to Events</a>
+
+        <div class="event-details-container">
+            <div class="event-content">
+                <div class="event-header-section">
+                    <div class="image-placeholder">
+                        <span class="category">Technology</span>
+                        <div class="action-buttons">
+                            <button class="icon-btn fav-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="icon-btn share-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-info-section">
+                    <div class="event-info-main">
+                        <h1 class="event-title">Tech Talk: AI in Healthcare</h1>
+                        <p class="event-club">Computer Science Club</p>
+                        <div class="reviews">
+                            <i class="fas fa-star"></i> 4.8 (23 reviews)
+                        </div>
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar-alt"></i> Jan 15, 2024
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i> 6:00 PM - 8:00 PM
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i> Engineering Building, Room 101
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-users"></i> 45 / 80 attending
+                            </div>
+                        </div>
+                        <p class="event-description">
+                            Join us for an exciting discussion about how artificial intelligence is revolutionizing healthcare and medical research. This comprehensive talk will cover the latest developments in AI-powered diagnostics, treatment planning, and patient care optimization.
+                        </p>
+                        <p class="event-description">
+                            Our guest speaker, Dr. Sarah Chen, is a leading researcher in medical AI at Stanford University. She will share insights from her groundbreaking work on machine learning algorithms that can detect early-stage diseases with unprecedented accuracy.
+                        </p>
+
+                        <div class="speaker-section">
+                            <h2 class="section-heading">Featured Speaker</h2>
+                            <div class="speaker-card">
+                                <img src="https://placehold.co/80x80/ff4d7e/fff?text=SC" alt="Speaker Profile" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h3 class="speaker-name">Dr. Sarah Chen</h3>
+                                    <p class="speaker-role">AI Research Scientist, Stanford University</p>
+                                    <p class="speaker-bio">Dr. Chen is a leading expert in medical AI with over 10 years of experience in machine learning applications for healthcare.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="agenda-section">
+                            <h2 class="section-heading">Event Agenda</h2>
+                            <ul class="agenda-list">
+                                <li><strong>6:00 PM</strong> Welcome & Introductions</li>
+                                <li><strong>6:15 PM</strong> Keynote: AI in Healthcare</li>
+                                <li><strong>7:00 PM</strong> Q&A Session</li>
+                                <li><strong>7:30 PM</strong> Networking & Refreshments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="registration-form">
+                    <h2 class="section-heading">Join This Event</h2>
+                    <form id="registration-form">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                        <button type="submit" class="register-btn">Register Now</button>
+                    </form>
+                    <p class="spots-remaining">35 spots remaining</p>
+                    <button class="secondary-btn"><i class="fas fa-calendar-plus"></i> Add to Calendar</button>
+                    <button class="secondary-btn"><i class="fas fa-comments"></i> Join Discussion</button>
+                </div>
+                <div class="related-events">
+                    <h2 class="section-heading">Related Events</h2>
+                    <div class="related-card">
+                        <h3>Machine Learning Workshop</h3>
+                        <p>Data Science Society</p>
+                        <p>📅 Jan 22, 2024</p>
+                    </div>
+                    <div class="related-card">
+                        <h3>Healthcare Innovation Panel</h3>
+                        <p>Pre-Med Society</p>
+                        <p>📅 Jan 28, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="message-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script src="scriptt.js"></script>
+</body>
+</html>

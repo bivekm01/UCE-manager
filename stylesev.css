@@ -136,20 +136,20 @@ label[for="theme-switch"]::after {
     align-items: flex-start;
     padding: 1.5rem;
     position: relative;
-    background-image: url('https://placehold.co/1200x600/2a2a2a/e0e0e0?text=Event+Image');
+    background-image: url('./1.png');
     background-size: cover;
     background-position: center;
 }
 
 .image-placeholder::after {
-    content: '';
+    content: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    background: url('https://cdn.iconscout.com/icon/premium/png-256-thumb/placeholder-5636009-4702958.png?f=webp') no-repeat center center;
+    background: url('1.png') no-repeat center center;
     background-size: contain;
     opacity: 0.1;
 }
